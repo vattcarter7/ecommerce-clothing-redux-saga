@@ -1,4 +1,11 @@
-import UserActionTypes from './user.types';
+import {
+  SIGN_IN_SUCCESS,
+  SIGN_OUT_SUCCESS,
+  SIGN_IN_FAILURE,
+  SIGN_UP_FAILURE,
+  SIGN_OUT_FAILURE
+} from './user.types';
+
 import userReducer from './user.reducer';
 
 const initialState = {
@@ -16,7 +23,7 @@ describe('userReducer', () => {
 
     expect(
       userReducer(initialState, {
-        type: UserActionTypes.SIGN_IN_SUCCESS,
+        type: SIGN_IN_SUCCESS,
         payload: mockUser
       }).currentUser
     ).toEqual(mockUser);
@@ -25,7 +32,7 @@ describe('userReducer', () => {
   it('should set currentUser to null on signOutSuccess action', () => {
     expect(
       userReducer(initialState, {
-        type: UserActionTypes.SIGN_OUT_SUCCESS
+        type: SIGN_OUT_SUCCESS
       }).currentUser
     ).toBe(null);
   });
@@ -38,21 +45,21 @@ describe('userReducer', () => {
 
     expect(
       userReducer(initialState, {
-        type: UserActionTypes.SIGN_IN_FAILURE,
+        type: SIGN_IN_FAILURE,
         payload: mockError
       }).error
     ).toBe(mockError);
 
     expect(
       userReducer(initialState, {
-        type: UserActionTypes.SIGN_UP_FAILURE,
+        type: SIGN_UP_FAILURE,
         payload: mockError
       }).error
     ).toBe(mockError);
 
     expect(
       userReducer(initialState, {
-        type: UserActionTypes.SIGN_OUT_FAILURE,
+        type: SIGN_OUT_FAILURE,
         payload: mockError
       }).error
     ).toBe(mockError);

@@ -1,4 +1,9 @@
-import ShopActionTypes from './shop.types';
+import {
+  FETCH_COLLECTIONS_START,
+  FETCH_COLLECTIONS_SUCCESS,
+  FETCH_COLLECTIONS_FAILURE
+} from './shop.types';
+
 import shopReducer from './shop.reducer';
 
 const initialState = {
@@ -15,7 +20,7 @@ describe('shopReducer', () => {
   it('should set isFetching to true if fetchingCollectionsStart action', () => {
     expect(
       shopReducer(initialState, {
-        type: ShopActionTypes.FETCH_COLLECTIONS_START
+        type: FETCH_COLLECTIONS_START
       }).isFetching
     ).toBe(true);
   });
@@ -24,7 +29,7 @@ describe('shopReducer', () => {
     const mockItems = [{ id: 1 }, { id: 2 }];
     expect(
       shopReducer(initialState, {
-        type: ShopActionTypes.FETCH_COLLECTIONS_SUCCESS,
+        type: FETCH_COLLECTIONS_SUCCESS,
         payload: mockItems
       })
     ).toEqual({
@@ -37,7 +42,7 @@ describe('shopReducer', () => {
   it('should set isFetching to false and errorMessage to payload if fetchingCollectionsFailure', () => {
     expect(
       shopReducer(initialState, {
-        type: ShopActionTypes.FETCH_COLLECTIONS_FAILURE,
+        type: FETCH_COLLECTIONS_FAILURE,
         payload: 'error'
       })
     ).toEqual({

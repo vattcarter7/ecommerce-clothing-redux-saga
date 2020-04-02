@@ -1,4 +1,11 @@
-import CartActionTypes from './cart.types';
+import {
+  TOGGLE_CART_HIDDEN,
+  ADD_ITEM,
+  REMOVE_ITEM,
+  CLEAR_ITEM_FROM_CART,
+  CLEAR_CART
+} from './cart.types';
+
 import cartReducer from './cart.reducer';
 
 const initialState = {
@@ -13,7 +20,7 @@ describe('cartReducer', () => {
 
   it('should toggle hidden with toggleHidden action', () => {
     expect(
-      cartReducer(initialState, { type: CartActionTypes.TOGGLE_CART_HIDDEN })
+      cartReducer(initialState, { type: TOGGLE_CART_HIDDEN })
         .hidden
     ).toBe(false);
   });
@@ -31,7 +38,7 @@ describe('cartReducer', () => {
 
     expect(
       cartReducer(mockPrevState, {
-        type: CartActionTypes.ADD_ITEM,
+        type: ADD_ITEM,
         payload: mockItem
       }).cartItems[0].quantity
     ).toBe(4);
@@ -50,7 +57,7 @@ describe('cartReducer', () => {
 
     expect(
       cartReducer(mockPrevState, {
-        type: CartActionTypes.REMOVE_ITEM,
+        type: REMOVE_ITEM,
         payload: mockItem
       }).cartItems[0].quantity
     ).toBe(2);
@@ -69,7 +76,7 @@ describe('cartReducer', () => {
 
     expect(
       cartReducer(mockPrevState, {
-        type: CartActionTypes.CLEAR_ITEM_FROM_CART,
+        type: CLEAR_ITEM_FROM_CART,
         payload: mockItem
       }).cartItems.includes(item => item.id === 1)
     ).toBe(false);
@@ -78,12 +85,15 @@ describe('cartReducer', () => {
   it('should clear cart if clearCart action fired', () => {
     const mockPrevState = {
       hidden: true,
-      cartItems: [{ id: 1, quantity: 3 }, { id: 2, quantity: 1 }]
+      cartItems: [
+        { id: 1, quantity: 3 },
+        { id: 2, quantity: 1 }
+      ]
     };
 
     expect(
       cartReducer(mockPrevState, {
-        type: CartActionTypes.CLEAR_CART
+        type: CLEAR_CART
       }).cartItems.length
     ).toBe(0);
   });

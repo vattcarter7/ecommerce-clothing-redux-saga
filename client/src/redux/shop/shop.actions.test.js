@@ -1,4 +1,8 @@
-import ShopActionTypes from './shop.types';
+import {
+  FETCH_COLLECTIONS_START,
+  FETCH_COLLECTIONS_SUCCESS,
+  FETCH_COLLECTIONS_FAILURE
+} from './shop.types';
 import {
   fetchCollectionsStart,
   fetchCollectionsSuccess,
@@ -9,7 +13,7 @@ import {
 describe('fetchCollectionsStart action', () => {
   it('should create the fetchCollectionsStart action', () => {
     expect(fetchCollectionsStart().type).toEqual(
-      ShopActionTypes.FETCH_COLLECTIONS_START
+      FETCH_COLLECTIONS_START
     );
   });
 });
@@ -24,7 +28,7 @@ describe('fetchCollectionsSuccess action', () => {
 
     const action = fetchCollectionsSuccess(mockCollectionsMap);
 
-    expect(action.type).toEqual(ShopActionTypes.FETCH_COLLECTIONS_SUCCESS);
+    expect(action.type).toEqual(FETCH_COLLECTIONS_SUCCESS);
     expect(action.payload).toEqual(mockCollectionsMap);
   });
 });
@@ -33,7 +37,7 @@ describe('fetchCollectionsFailure action', () => {
   it('should create the fetchCollectionsFailure action', () => {
     const action = fetchCollectionsFailure('errored');
 
-    expect(action.type).toEqual(ShopActionTypes.FETCH_COLLECTIONS_FAILURE);
+    expect(action.type).toEqual(FETCH_COLLECTIONS_FAILURE);
     expect(action.payload).toEqual('errored');
   });
 });
