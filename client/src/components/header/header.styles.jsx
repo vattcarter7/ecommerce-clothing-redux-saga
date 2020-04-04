@@ -34,7 +34,9 @@ export const OptionsContainer = styled.div`
   justify-content: flex-end;
 
   @media screen and (max-width: 800px) {
-    width: 80%;
+    width: 85%;
+    font-size: 14px;
+    margin-top: 5px;
   }
 `;
 

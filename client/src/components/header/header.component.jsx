@@ -20,11 +20,11 @@ import {
 export const Header = ({ currentUser, hidden, signOutStart }) => (
   <HeaderContainer>
     <LogoContainer to='/'>
-      <Logo className='logo' />
+      <Logo />
     </LogoContainer>
     <OptionsContainer>
       <OptionLink to='/shop'>SHOP</OptionLink>
-      <OptionLink to='/shop'>CONTACT</OptionLink>
+      <OptionLink to='/contact'>CONTACT</OptionLink>
       {currentUser ? (
         <OptionLink to='/signout' as='div' onClick={signOutStart}>
           SIGN OUT

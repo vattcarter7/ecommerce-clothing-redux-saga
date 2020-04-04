@@ -17,12 +17,16 @@ export const CollectionItemsContainer = styled.div`
   grid-gap: 10px;
 
   & > div {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
 
   @media screen and (max-width: 800px) {
     grid-template-columns: 1fr 1fr;
     grid-gap: 15px;
+
+    & > div {
+      margin-bottom: 25px;
+    }
   }
 `;
 

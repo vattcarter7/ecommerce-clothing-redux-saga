@@ -25,7 +25,7 @@ export const MenuItem = ({
       className='background-image'
       imageUrl={imageUrl}
     />
-    <ContentContainer className='content'>
+    <ContentContainer>
       <ContentTitle>{title.toUpperCase()}</ContentTitle>
       <ContentSubtitle>SHOP NOW</ContentSubtitle>
     </ContentContainer>

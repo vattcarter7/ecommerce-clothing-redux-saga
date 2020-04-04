@@ -4,7 +4,7 @@ export const SignInAndSignUpContainer = styled.div`
   width: 850px;
   display: flex;
   justify-content: space-between;
-  margin: 30px auto;
+  margin: 20px auto;
 
   @media screen and (max-width: 800px) {
     flex-direction: column;
@@ -12,7 +12,7 @@ export const SignInAndSignUpContainer = styled.div`
     align-items: center;
 
     > *:first-child {
-      margin-bottom: 50px;
+      margin-bottom: 40px;
     }
   }
 `;
