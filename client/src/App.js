@@ -12,12 +12,12 @@ import { GlobalStyle } from './global.styles';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/user.actions';
 
-const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
-const ShopPage = lazy(() => import('./pages/shop/shop.component'));
+const HomePage = lazy(() => import('./pages/homepage/home.page'));
+const ShopPage = lazy(() => import('./pages/shop/shop.page'));
 const SignInAndSignUpPage = lazy(() =>
-  import('./pages/sign-in-and-sign-up/sign-in-and-sign-up.component')
+  import('./pages/sign-in-and-sign-up/sign-in-and-sign-up.page')
 );
-const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
+const CheckoutPage = lazy(() => import('./pages/checkout/checkout.page'));
 
 const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
