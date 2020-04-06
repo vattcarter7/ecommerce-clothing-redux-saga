@@ -1,7 +1,7 @@
 import {
   FETCH_COLLECTIONS_START,
   FETCH_COLLECTIONS_SUCCESS,
-  FETCH_COLLECTIONS_FAILURE
+  FETCH_COLLECTIONS_FAILURE,
 } from './shop.types';
 
 import shopReducer from './shop.reducer';
@@ -9,7 +9,7 @@ import shopReducer from './shop.reducer';
 const initialState = {
   collections: null,
   isFetching: false,
-  errorMessage: undefined
+  errorMessage: undefined,
 };
 
 describe('shopReducer', () => {
@@ -20,7 +20,7 @@ describe('shopReducer', () => {
   it('should set isFetching to true if fetchingCollectionsStart action', () => {
     expect(
       shopReducer(initialState, {
-        type: FETCH_COLLECTIONS_START
+        type: FETCH_COLLECTIONS_START,
       }).isFetching
     ).toBe(true);
   });
@@ -30,12 +30,12 @@ describe('shopReducer', () => {
     expect(
       shopReducer(initialState, {
         type: FETCH_COLLECTIONS_SUCCESS,
-        payload: mockItems
+        payload: mockItems,
       })
     ).toEqual({
       ...initialState,
       isFetching: false,
-      collections: mockItems
+      collections: mockItems,
     });
   });
 
@@ -43,12 +43,12 @@ describe('shopReducer', () => {
     expect(
       shopReducer(initialState, {
         type: FETCH_COLLECTIONS_FAILURE,
-        payload: 'error'
+        payload: 'error',
       })
     ).toEqual({
       ...initialState,
       isFetching: false,
-      errorMessage: 'error'
+      errorMessage: 'error',
     });
   });
 });

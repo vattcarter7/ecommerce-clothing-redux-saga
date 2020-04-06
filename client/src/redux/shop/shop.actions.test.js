@@ -1,20 +1,18 @@
 import {
   FETCH_COLLECTIONS_START,
   FETCH_COLLECTIONS_SUCCESS,
-  FETCH_COLLECTIONS_FAILURE
+  FETCH_COLLECTIONS_FAILURE,
 } from './shop.types';
 import {
   fetchCollectionsStart,
   fetchCollectionsSuccess,
   fetchCollectionsFailure,
-  fetchCollectionsStartAsync
+  fetchCollectionsStartAsync,
 } from './shop.actions';
 
 describe('fetchCollectionsStart action', () => {
   it('should create the fetchCollectionsStart action', () => {
-    expect(fetchCollectionsStart().type).toEqual(
-      FETCH_COLLECTIONS_START
-    );
+    expect(fetchCollectionsStart().type).toEqual(FETCH_COLLECTIONS_START);
   });
 });
 
@@ -22,8 +20,8 @@ describe('fetchCollectionsSuccess action', () => {
   it('should create the fetchCollectionsSuccess action', () => {
     const mockCollectionsMap = {
       hats: {
-        id: 1
-      }
+        id: 1,
+      },
     };
 
     const action = fetchCollectionsSuccess(mockCollectionsMap);

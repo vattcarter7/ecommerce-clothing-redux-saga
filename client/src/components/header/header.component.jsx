@@ -18,11 +18,11 @@ export const Header = ({ currentUser, hidden, signOutStart }) => (
     <Link to='/'>
       <Logo />
     </Link>
-    <div class='options-container'>
+    <div className='options-container'>
       <Link className='option' to='/shop'>SHOP</Link>
       <Link className='option' to='/contact'>CONTACT</Link>
       {currentUser ? (
-        <Link className='option' to='/signout' as='div' onClick={signOutStart}>
+        <Link className='option' to='/' as='div' onClick={signOutStart}>
           SIGN OUT
         </Link>
       ) : (

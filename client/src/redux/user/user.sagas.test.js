@@ -6,8 +6,8 @@ import {
   SIGN_OUT_START,
   CHECK_USER_SESSION,
   EMAIL_SIGN_IN_START,
-  EMAIL_SIGN_IN_START, 
-  GOOGLE_SIGN_IN_START
+  EMAIL_SIGN_IN_START,
+  GOOGLE_SIGN_IN_START,
 } from './user.types';
 
 import {
@@ -16,14 +16,14 @@ import {
   signOutSuccess,
   signOutFailure,
   signUpSuccess,
-  signUpFailure
+  signUpFailure,
 } from './user.actions';
 
 import {
   auth,
   googleProvider,
   createUserProfileDocument,
-  getCurrentUser
+  getCurrentUser,
 } from '../../firebase/firebase.utils';
 
 import {
@@ -39,7 +39,7 @@ import {
   onCheckUserSession,
   onSignOutStart,
   onSignUpStart,
-  onSignUpSuccess
+  onSignUpSuccess,
 } from './user.sagas';
 
 describe('on signup success saga', () => {
@@ -54,18 +54,14 @@ describe('on signup success saga', () => {
 describe('on signup start saga', () => {
   it('should trigger on SIGN_UP_START', () => {
     const generator = onSignUpStart();
-    expect(generator.next().value).toEqual(
-      takeLatest(SIGN_UP_START, signUp)
-    );
+    expect(generator.next().value).toEqual(takeLatest(SIGN_UP_START, signUp));
   });
 });
 
 describe('on signout start saga', () => {
   it('should trigger on SIGN_UP_START', () => {
     const generator = onSignOutStart();
-    expect(generator.next().value).toEqual(
-      takeLatest(SIGN_OUT_START, signOut)
-    );
+    expect(generator.next().value).toEqual(takeLatest(SIGN_OUT_START, signOut));
   });
 });
 
@@ -103,8 +99,8 @@ describe('on sign in after sign up saga', () => {
     const mockAction = {
       payload: {
         user: mockUser,
-        additionalData: mockAdditionalData
-      }
+        additionalData: mockAdditionalData,
+      },
     };
 
     const generator = signInAfterSignUp(mockAction);
@@ -123,8 +119,8 @@ describe('on sign up saga', () => {
     payload: {
       email: mockEmail,
       password: mockPassword,
-      displayName: mockDisplayName
-    }
+      displayName: mockDisplayName,
+    },
   };
 
   const generator = signUp(mockAction);

@@ -3,7 +3,7 @@ import {
   ADD_ITEM,
   REMOVE_ITEM,
   CLEAR_ITEM_FROM_CART,
-  CLEAR_CART
+  CLEAR_CART,
 } from './cart.types';
 
 import {
@@ -11,7 +11,7 @@ import {
   addItem,
   removeItem,
   clearItemFromCart,
-  clearCart
+  clearCart,
 } from './cart.actions';
 
 describe('toggleCartHidden action', () => {
@@ -23,7 +23,7 @@ describe('toggleCartHidden action', () => {
 describe('addItem action', () => {
   it('should create the addItem action', () => {
     const mockItem = {
-      id: 1
+      id: 1,
     };
 
     const action = addItem(mockItem);
@@ -36,7 +36,7 @@ describe('addItem action', () => {
 describe('removeItem action', () => {
   it('should create the removeItem action', () => {
     const mockItem = {
-      id: 1
+      id: 1,
     };
 
     const action = removeItem(mockItem);
@@ -49,7 +49,7 @@ describe('removeItem action', () => {
 describe('clearItemFromCart action', () => {
   it('should create the clearItemFromCart action', () => {
     const mockItem = {
-      id: 1
+      id: 1,
     };
 
     const action = clearItemFromCart(mockItem);

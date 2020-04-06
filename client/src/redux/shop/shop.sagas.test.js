@@ -2,12 +2,12 @@ import { takeLatest, call, put } from 'redux-saga/effects';
 
 import {
   firestore,
-  convertCollectionsSnapshotToMap
+  convertCollectionsSnapshotToMap,
 } from '../../firebase/firebase.utils';
 
 import {
   fetchCollectionsSuccess,
-  fetchCollectionsFailure
+  fetchCollectionsFailure,
 } from './shop.actions';
 
 import { FETCH_COLLECTIONS_START } from './shop.types';
@@ -41,7 +41,7 @@ describe('fetch collections async saga', () => {
 
   it('should fire fetchCollectionsSuccess if collectionsMap is succesful', () => {
     const mockCollectionsMap = {
-      hats: { id: 1 }
+      hats: { id: 1 },
     };
 
     expect(generator.next(mockCollectionsMap).value).toEqual(

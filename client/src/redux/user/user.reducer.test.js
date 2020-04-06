@@ -3,14 +3,14 @@ import {
   SIGN_OUT_SUCCESS,
   SIGN_IN_FAILURE,
   SIGN_UP_FAILURE,
-  SIGN_OUT_FAILURE
+  SIGN_OUT_FAILURE,
 } from './user.types';
 
 import userReducer from './user.reducer';
 
 const initialState = {
   currentUser: null,
-  error: null
+  error: null,
 };
 
 describe('userReducer', () => {
@@ -24,7 +24,7 @@ describe('userReducer', () => {
     expect(
       userReducer(initialState, {
         type: SIGN_IN_SUCCESS,
-        payload: mockUser
+        payload: mockUser,
       }).currentUser
     ).toEqual(mockUser);
   });
@@ -32,7 +32,7 @@ describe('userReducer', () => {
   it('should set currentUser to null on signOutSuccess action', () => {
     expect(
       userReducer(initialState, {
-        type: SIGN_OUT_SUCCESS
+        type: SIGN_OUT_SUCCESS,
       }).currentUser
     ).toBe(null);
   });
@@ -40,27 +40,27 @@ describe('userReducer', () => {
   it('should set errorMessage to payload on signInFailure, signUpFailure, signOutFailure action', () => {
     const mockError = {
       message: 'errored',
-      code: 404
+      code: 404,
     };
 
     expect(
       userReducer(initialState, {
         type: SIGN_IN_FAILURE,
-        payload: mockError
+        payload: mockError,
       }).error
     ).toBe(mockError);
 
     expect(
       userReducer(initialState, {
         type: SIGN_UP_FAILURE,
-        payload: mockError
+        payload: mockError,
       }).error
     ).toBe(mockError);
 
     expect(
       userReducer(initialState, {
         type: SIGN_OUT_FAILURE,
-        payload: mockError
+        payload: mockError,
       }).error
     ).toBe(mockError);
   });
