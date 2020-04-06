@@ -11,33 +11,44 @@ import {
   CartDropdownContainer,
   CartDropdownButton,
   EmptyMessageContainer,
-  CartItemsContainer
+  CartItemsContainer,
 } from './cart-dropdown.styles';
 
 export const CartDropdown = ({ cartItems, history, dispatch }) => (
   <CartDropdownContainer>
     <CartItemsContainer>
       {cartItems.length ? (
-        cartItems.map(cartItem => (
+        cartItems.map((cartItem) => (
           <CartItem key={cartItem.id} item={cartItem} />
         ))
       ) : (
         <EmptyMessageContainer>Your cart is empty</EmptyMessageContainer>
       )}
     </CartItemsContainer>
-    <CartDropdownButton
-      onClick={() => {
-        history.push('/checkout');
-        dispatch(toggleCartHidden());
-      }}
-    >
-      GO TO CHECKOUT
-    </CartDropdownButton>
+    {cartItems.length ? (
+      <CartDropdownButton
+        onClick={() => {
+          history.push('/checkout');
+          dispatch(toggleCartHidden());
+        }}
+      >
+        GO TO CHECKOUT
+      </CartDropdownButton>
+    ) : (
+      <CartDropdownButton
+        onClick={() => {
+          history.push('/shop');
+          dispatch(toggleCartHidden());
+        }}
+      >
+        GO TO SHOP
+      </CartDropdownButton>
+    )}
   </CartDropdownContainer>
 );
 
 const mapStateToProps = createStructuredSelector({
-  cartItems: selectCartItems
+  cartItems: selectCartItems,
 });
 
 export default withRouter(connect(mapStateToProps)(CartDropdown));
