@@ -1,17 +1,13 @@
 import React from 'react';
 
-import {
-  ErrorImageOverlay,
-  ErrorImageContainer,
-  ErrorImageText
-} from './error-boundary.styles';
+import './error-boundary.styles.scss';
 
 class ErrorBoundary extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      hasErrored: false
+      hasErrored: false,
     };
   }
 
@@ -25,12 +21,16 @@ class ErrorBoundary extends React.Component {
   }
 
   render() {
+    const imageUrl = 'https://i.imgur.com/yW2W9SC.png';
     if (this.state.hasErrored) {
       return (
-        <ErrorImageOverlay>
-          <ErrorImageContainer imageUrl='https://i.imgur.com/yW2W9SC.png' />
-          <ErrorImageText>Sorry this page is broken</ErrorImageText>
-        </ErrorImageOverlay>
+        <div className='error-image-overlay'>
+          <div
+            className='error-image-container'
+            style={{ backgroundImage: `url(${imageUrl})` }}
+          />
+          <h2 className='error-image-text'>Sorry this page is broken</h2>
+        </div>
       );
     }
 

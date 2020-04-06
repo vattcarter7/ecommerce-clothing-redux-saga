@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-export const SignInAndSignUpContainer = styled.div`
+.signin-and-signup-container {
   width: 850px;
   display: flex;
   justify-content: space-between;
@@ -15,4 +13,4 @@ export const SignInAndSignUpContainer = styled.div`
       margin-bottom: 40px;
     }
   }
-`;
+}
