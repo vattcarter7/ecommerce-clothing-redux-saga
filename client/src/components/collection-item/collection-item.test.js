@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { CollectionItem } from './collection-item.component';
+import CollectionItem from './collection-item.component';
 
 describe('CollectionItem component', () => {
   let wrapper;
@@ -17,9 +17,9 @@ describe('CollectionItem component', () => {
       item: {
         imageUrl: imageUrl,
         price: mockPrice,
-        name: mockName
+        name: mockName,
       },
-      addItem: mockAddItem
+      addItem: mockAddItem,
     };
 
     wrapper = shallow(<CollectionItem {...mockProps} />);

@@ -6,7 +6,6 @@ import {
   SIGN_OUT_START,
   CHECK_USER_SESSION,
   EMAIL_SIGN_IN_START,
-  EMAIL_SIGN_IN_START,
   GOOGLE_SIGN_IN_START,
 } from './user.types';
 

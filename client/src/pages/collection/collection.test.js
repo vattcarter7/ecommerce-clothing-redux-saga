@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { CollectionPage } from './collection.component';
+import CollectionPage from './collection.page';
 import CollectionItem from '../../components/collection-item/collection-item.component';
 
 describe('CollectionPage', () => {
@@ -10,7 +10,7 @@ describe('CollectionPage', () => {
   beforeEach(() => {
     const mockCollection = {
       items: mockItems,
-      title: 'Test'
+      title: 'Test',
     };
 
     wrapper = shallow(<CollectionPage collection={mockCollection} />);
