@@ -25,8 +25,8 @@ export const selectIsCollectionFetching = createSelector(
 
 export const selectIsCollectionsLoading = createSelector(
   [selectShop],
-  shop => !shop.collections
-)
+  (shop) => !shop.collections
+);
 
 // lagacy code from Yihua
 // export const selectIsCollectionsLoaded = createSelector(
